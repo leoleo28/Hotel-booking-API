@@ -30,17 +30,11 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
-app.use("/auth", authRoute);
-app.use("/users", usersRoute);
-app.use("/hotels", hotelsRoute);
-app.use("/rooms", roomsRoute);
-app.use("/order", orderRoute);
-
-app.get("/abcusers", (req, res) => {
-  res.json({
-    mesg: "hello users",
-  });
-});
+app.use("/api/auth", authRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/hotels", hotelsRoute);
+app.use("/api/rooms", roomsRoute);
+app.use("/api/order", orderRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
